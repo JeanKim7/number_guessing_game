@@ -53,14 +53,36 @@ def number_guessing_game():
                         answer=randint(x,y)
 
                         #----------begin game----------
-                        for attempt in range
-                        print(f"\nGuesses left: {number_of_guesses}")
-                        try:
-                            attempt=int(input("Enter a guess of what the number is: "))
-                        except ValueError:
-                            print("-----Please enter a number ONLY-----\n")
-                            continue
-                        else: 
+                        for i in range(1, number_of_guesses+2):
+                            print(f"\nGuesses left: {number_of_guesses}")
+                            try:
+                                attempt1=input("Enter a guess of what the number is\n(if you do not enter a number or etner nothing, the game will end): ")    
+                                if attempt1 == "":
+                                    print("-----Please enter a number ONLY-----\n"
+                                      "-----GAME OVER-----")
+                                    break
+                                attempt=int(attempt1)
+                            except ValueError:
+                                print("-----Please enter a number ONLY-----\n"
+                                      "-----GAME OVER-----")
+                                break
+                            else:
+                                if number_of_guesses == 0:
+                                    print("\nYou ran out of guesses! Better luck next time.\n"
+                                          f"The answer was {answer}!"
+                                          "\n-----GAME OVER-----")
+                                    break
+                                elif attempt > answer:
+                                    print("Try again! You guessed too high!")
+                                    number_of_guesses -= 1
+                                elif attempt < answer:
+                                    print("Try again! You guessed too low")
+                                    number_of_guesses -= 1
+                                elif attempt==answer:
+                                    print(f"-----Congratulations, you won!-----\nYou got the answer in {number_of_guesses} guesses. "
+                                          "Thanks for playing :)\n")
+                                    break
+                        break
 
 
 
