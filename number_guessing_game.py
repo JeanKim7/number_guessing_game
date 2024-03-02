@@ -86,7 +86,7 @@ def number_guessing_game():
                                               "\n-----GAME OVER-----\n")
                                         break
                                 elif attempt==answer:
-                                    print(f"-----Congratulations, you won!-----\nYou got the answer in {number_of_guesses} guesses. "
+                                    print(f"\n-----Congratulations, you won!-----\nYou got the answer in {i} guesses. "
                                           "Thanks for playing :)\n")
                                     break
                         break
