@@ -61,13 +61,13 @@ def number_guessing_game():
                                 #end game if input left empty
                                 if attempt1 == "":
                                     print("-----Please enter a number ONLY-----\n"
-                                      "-----GAME OVER-----")
+                                      "-----GAME OVER-----\n")
                                     break
                                 attempt=int(attempt1)
                             #end game if string is entered instead of number
                             except ValueError:
                                 print("-----Please enter a number ONLY-----\n"
-                                      "-----GAME OVER-----")
+                                      "-----GAME OVER-----\n")
                                 break
                             else:
                                 #message if guess is higher than answer
