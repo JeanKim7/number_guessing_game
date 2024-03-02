@@ -53,10 +53,10 @@ def number_guessing_game():
                         answer=randint(x,y)
 
                         #----------begin game----------
-                        for i in range(1, number_of_guesses+2):
+                        for i in range(1, number_of_guesses+1):
                             print(f"\nGuesses left: {number_of_guesses}")
                             try:
-                                attempt1=input("Enter a guess of what the number is\n(if you do not enter a number or etner nothing, the game will end): ")    
+                                attempt1=input("Enter a guess of what the number is\n(if you do not enter a number or enter nothing, the game will end): ")    
                                 if attempt1 == "":
                                     print("-----Please enter a number ONLY-----\n"
                                       "-----GAME OVER-----")
@@ -67,17 +67,24 @@ def number_guessing_game():
                                       "-----GAME OVER-----")
                                 break
                             else:
-                                if number_of_guesses == 0:
-                                    print("\nYou ran out of guesses! Better luck next time.\n"
-                                          f"The answer was {answer}!"
-                                          "\n-----GAME OVER-----")
-                                    break
-                                elif attempt > answer:
-                                    print("Try again! You guessed too high!")
+                                if attempt > answer:
                                     number_of_guesses -= 1
+                                    if number_of_guesses >0:
+                                        print("Try again! You guessed too high!")
+                                    elif number_of_guesses == 0:
+                                        print("\nYou ran out of guesses! Better luck next time.\n"
+                                              f"The answer was {answer}!"
+                                              "\n-----GAME OVER-----\n")
+                                        break
                                 elif attempt < answer:
-                                    print("Try again! You guessed too low")
                                     number_of_guesses -= 1
+                                    if number_of_guesses >0:
+                                        print("Try again! You guessed too low!")
+                                    elif number_of_guesses == 0:
+                                        print("\nYou ran out of guesses! Better luck next time.\n"
+                                              f"The answer was {answer}!"
+                                              "\n-----GAME OVER-----\n")
+                                        break
                                 elif attempt==answer:
                                     print(f"-----Congratulations, you won!-----\nYou got the answer in {number_of_guesses} guesses. "
                                           "Thanks for playing :)\n")
