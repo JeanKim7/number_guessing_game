@@ -57,34 +57,41 @@ def number_guessing_game():
                             print(f"\nGuesses left: {number_of_guesses}")
                             try:
                                 attempt1=input("Enter a guess of what the number is\n(if you do not enter a number or enter nothing, the game will end): ")    
+                                #end game if input left empty
                                 if attempt1 == "":
                                     print("-----Please enter a number ONLY-----\n"
                                       "-----GAME OVER-----")
                                     break
                                 attempt=int(attempt1)
+                            #end game if string is entered instead of number
                             except ValueError:
                                 print("-----Please enter a number ONLY-----\n"
                                       "-----GAME OVER-----")
                                 break
                             else:
+                                #message if guess is higher than answer
                                 if attempt > answer:
                                     number_of_guesses -= 1
                                     if number_of_guesses >0:
                                         print("Try again! You guessed too high!")
+                                    #end game if out of guesses
                                     elif number_of_guesses == 0:
                                         print("\nYou ran out of guesses! Better luck next time.\n"
                                               f"The answer was {answer}!"
                                               "\n-----GAME OVER-----\n")
                                         break
+                                #message if guess is lower than answer
                                 elif attempt < answer:
                                     number_of_guesses -= 1
                                     if number_of_guesses >0:
                                         print("Try again! You guessed too low!")
+                                    #end game if out of guesses
                                     elif number_of_guesses == 0:
                                         print("\nYou ran out of guesses! Better luck next time.\n"
                                               f"The answer was {answer}!"
                                               "\n-----GAME OVER-----\n")
                                         break
+                                #end game and message if player guesses the right answer!
                                 elif attempt==answer:
                                     print(f"\n-----Congratulations, you won!-----\nYou got the answer in {i} guesses. "
                                           "Thanks for playing :)\n")
